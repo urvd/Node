@@ -1,0 +1,32 @@
+{
+  "name": "calculateur",
+  "version": "1.0.0",
+  "description": "Calculateur simple en ligne de commande (portage Node/TypeScript du calculateur Java)",
+  "main": "dist/App.js",
+  "bin": {
+    "calculateur": "dist/App.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "start": "node dist/App.js",
+    "dev": "ts-node src/App.ts",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "test:mutation": "stryker run"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "@stryker-mutator/core": "^10.1.1",
+    "@stryker-mutator/jest-runner": "^10.1.1",
+    "@stryker-mutator/typescript-checker": "^10.1.1",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^26.6.5",
+    "jest": "^30.5.2",
+    "ts-jest": "^29.4.15",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
+}
