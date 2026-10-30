@@ -3,3 +3,4 @@ dist/
 coverage/
 reports/
 .stryker-tmp/
+.DS_Store
