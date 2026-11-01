@@ -10,20 +10,19 @@ describe('AppComponent', () => {
 
   it('should create the app', () => {
     const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+    expect(fixture.componentInstance).toBeTruthy();
   });
 
   it(`should have the 'calculatrice' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('calculatrice');
+    expect(fixture.componentInstance.title).toEqual('calculatrice');
   });
 
-  it('should render title', () => {
+  it('should render the calculator', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, calculatrice');
+    expect(compiled.querySelector('app-calculatrice')).toBeTruthy();
+    expect(compiled.querySelector('h1')?.textContent).toContain('Calc');
   });
 });

@@ -1,0 +1,9 @@
+<button
+  type="button"
+  class="touche"
+  [class]="'touche touche--' + variante()"
+  [attr.aria-label]="libelleAccessible()"
+  (click)="appui.emit()"
+>
+  <ng-content />
+</button>

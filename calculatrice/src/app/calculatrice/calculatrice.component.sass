@@ -1,0 +1,45 @@
+@use 'variables' as v
+@use 'mixins' as m
+
+:host
+  display: block
+
+.calculatrice
+  width: 100%
+  max-width: v.$calculatrice-largeur
+  box-sizing: border-box
+  padding: v.$space-6
+  display: flex
+  flex-direction: column
+  gap: 20px
+  color: v.$ink
+
+.calculatrice__entete
+  display: flex
+  align-items: flex-end
+  justify-content: space-between
+  gap: v.$space-3
+
+.calculatrice__titre
+  margin: 0
+  font-size: v.$font-taille-titre
+  line-height: 0.95
+  font-weight: v.$font-poids-gras
+  letter-spacing: -0.01em
+
+.calculatrice__sous-titre
+  @include m.label
+  padding-bottom: v.$space-1
+
+.calculatrice__corps
+  display: flex
+  flex-direction: column
+  gap: v.$space-3
+  padding: v.$space-3
+  background: v.$board
+  border-radius: v.$radius-md
+
+.calculatrice__clavier
+  display: grid
+  grid-template-columns: repeat(5, minmax(0, 1fr))
+  gap: v.$space-3

@@ -1,0 +1,75 @@
+// Variables du design « 2048 » appliqué à la calculatrice.
+// Une seule source de vérité : les composants les importent avec `@use 'variables' as v`.
+
+// --- Surfaces
+$surface-page: #faf6ef
+$surface-raised: #ffffff
+$board: #c9b9a8
+$cell-empty: #ddd0c2
+
+// --- Texte
+$ink: #3b2f26
+$ink-muted: #5e544b
+$ink-light: #fffaf3
+
+// --- États
+$focus: #2f6fb5
+
+// --- Palette des tuiles (une couleur = un rôle de touche)
+$tile-2: #f3ebe1
+$tile-16: #f39462
+$tile-32: #d9583a
+$tile-64: #b8402a
+
+// --- Rôles des touches
+$touche-chiffre-fond: $tile-2
+$touche-chiffre-texte: $ink
+$touche-fonction-fond: $cell-empty
+$touche-fonction-texte: $ink
+$touche-operateur-fond: $tile-16
+$touche-operateur-texte: $ink
+$touche-effacer-fond: $tile-64
+$touche-effacer-texte: $ink-light
+$touche-egal-fond: $tile-32
+$touche-egal-texte: $ink-light
+$ecran-fond: $tile-2
+
+// --- Typographie
+$font-famille: ui-rounded, "SF Pro Rounded", "Nunito", system-ui, sans-serif
+$font-poids-gras: 800
+$font-poids-label: 700
+$font-taille-titre: 44px
+$font-taille-ecran: 44px
+$font-taille-ecran-moyen: 36px
+$font-taille-ecran-petit: 28px
+$font-taille-chiffre: 28px
+$font-taille-operateur: 30px
+$font-taille-fonction: 18px
+$font-taille-egal: 36px
+$font-taille-label: 12px
+$interlettrage-label: 0.08em
+
+// --- Espacements
+$space-1: 4px
+$space-2: 8px
+$space-3: 12px
+$space-4: 16px
+$space-6: 24px
+
+// --- Rayons
+$radius-sm: 4px
+$radius-md: 8px
+$radius-lg: 14px
+
+// --- Ombres
+$shadow-tile: 0 2px 0 rgba(59, 47, 38, 0.18)
+$shadow-ecran: inset 0 2px 0 rgba(59, 47, 38, 0.12)
+
+// --- Dimensions
+$calculatrice-largeur: 420px
+$touche-hauteur: 64px
+$touche-hauteur-memoire: 52px
+$ecran-hauteur: 96px
+
+// --- Mouvement
+$transition-touche: 90ms ease

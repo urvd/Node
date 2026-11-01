@@ -1,0 +1,24 @@
+@use 'variables' as v
+
+// Libellé en capitales (en-tête, indicateurs de l'écran)
+@mixin label
+  font-size: v.$font-taille-label
+  line-height: 1.2
+  font-weight: v.$font-poids-label
+  letter-spacing: v.$interlettrage-label
+  color: v.$ink-muted
+
+// Couleurs d'une variante de touche
+@mixin touche-couleurs($fond, $texte, $relief: true)
+  background: $fond
+  color: $texte
+  @if $relief
+    box-shadow: v.$shadow-tile
+  @else
+    box-shadow: none
+
+// Anneau de focus clavier commun à tous les éléments interactifs
+@mixin focus-ring
+  &:focus-visible
+    outline: 2px solid v.$focus
+    outline-offset: 2px

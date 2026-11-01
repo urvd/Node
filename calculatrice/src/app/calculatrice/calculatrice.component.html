@@ -1,0 +1,48 @@
+<section class="calculatrice" aria-label="Calculatrice">
+  <header class="calculatrice__entete">
+    <h1 class="calculatrice__titre">Calc</h1>
+    <span class="calculatrice__sous-titre">CALCULATRICE</span>
+  </header>
+
+  <div class="calculatrice__corps">
+    <app-ecran
+      [valeur]="calc.affichage()"
+      [operationEnCours]="calc.operationEnCours()"
+      [memoireActive]="calc.memoireActive()"
+    />
+
+    <div class="calculatrice__clavier">
+      <app-touche variante="memoire" libelleAccessible="Pourcentage" (appui)="calc.pourcentage()">%</app-touche>
+      <app-touche variante="memoire" libelleAccessible="Ajouter à la mémoire" (appui)="calc.memoirePlus()">M+</app-touche>
+      <app-touche variante="memoire" libelleAccessible="Soustraire de la mémoire" (appui)="calc.memoireMoins()">M−</app-touche>
+      <app-touche variante="memoire" libelleAccessible="Rappel mémoire" (appui)="calc.memoireRappel()">MR</app-touche>
+      <app-touche variante="effacer" libelleAccessible="Effacer" (appui)="calc.effacer()">C</app-touche>
+
+      <app-touche variante="fonction" libelleAccessible="Inverse" (appui)="calc.inverse()">1/x</app-touche>
+      @for (c of chiffres.ligne1; track c) {
+        <app-touche variante="chiffre" (appui)="calc.chiffre(c)">{{ c }}</app-touche>
+      }
+      <app-touche variante="operateur" libelleAccessible="Diviser" (appui)="calc.operation('/')">÷</app-touche>
+
+      <app-touche variante="fonction" libelleAccessible="Racine carrée" (appui)="calc.racine()">√x</app-touche>
+      @for (c of chiffres.ligne2; track c) {
+        <app-touche variante="chiffre" (appui)="calc.chiffre(c)">{{ c }}</app-touche>
+      }
+      <app-touche variante="operateur" libelleAccessible="Multiplier" (appui)="calc.operation('*')">×</app-touche>
+
+      <app-touche variante="fonction" libelleAccessible="Carré" (appui)="calc.carre()">x<sup>2</sup></app-touche>
+      @for (c of chiffres.ligne3; track c) {
+        <app-touche variante="chiffre" (appui)="calc.chiffre(c)">{{ c }}</app-touche>
+      }
+      <app-touche variante="operateur" libelleAccessible="Soustraire" (appui)="calc.operation('-')">−</app-touche>
+
+      <app-touche variante="fonction" libelleAccessible="Exposant" (appui)="calc.exposant()">EE</app-touche>
+      <app-touche variante="chiffre" (appui)="calc.chiffre('0')">0</app-touche>
+      <app-touche variante="chiffre" libelleAccessible="Virgule" (appui)="calc.chiffre('.')">,</app-touche>
+      <app-touche variante="chiffre" libelleAccessible="Changer de signe" (appui)="calc.changerSigne()">(−)</app-touche>
+      <app-touche variante="operateur" libelleAccessible="Additionner" (appui)="calc.operation('+')">+</app-touche>
+
+      <app-touche variante="egal" libelleAccessible="Égal" (appui)="calc.egal()">=</app-touche>
+    </div>
+  </div>
+</section>

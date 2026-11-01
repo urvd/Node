@@ -1,0 +1,62 @@
+@use 'variables' as v
+@use 'mixins' as m
+
+:host
+  display: block
+
+:host(.pleine-largeur)
+  grid-column: 1 / -1
+
+.touche
+  width: 100%
+  height: v.$touche-hauteur
+  border: 0
+  border-radius: v.$radius-md
+  font-family: inherit
+  font-weight: v.$font-poids-gras
+  line-height: 1
+  cursor: pointer
+  transition: transform v.$transition-touche, filter v.$transition-touche
+  @include m.focus-ring
+
+  &:hover
+    filter: brightness(1.04)
+
+  &:active
+    transform: scale(0.95)
+
+  @media (prefers-reduced-motion: reduce)
+    transition: none
+    &:active
+      transform: none
+
+
+.touche--chiffre
+  font-size: v.$font-taille-chiffre
+  @include m.touche-couleurs(v.$touche-chiffre-fond, v.$touche-chiffre-texte)
+
+.touche--fonction
+  font-size: v.$font-taille-fonction
+  @include m.touche-couleurs(v.$touche-fonction-fond, v.$touche-fonction-texte, false)
+
+.touche--memoire
+  height: v.$touche-hauteur-memoire
+  font-size: v.$font-taille-fonction
+  @include m.touche-couleurs(v.$touche-fonction-fond, v.$touche-fonction-texte, false)
+
+.touche--operateur
+  font-size: v.$font-taille-operateur
+  @include m.touche-couleurs(v.$touche-operateur-fond, v.$touche-operateur-texte)
+
+.touche--effacer
+  height: v.$touche-hauteur-memoire
+  font-size: 22px
+  @include m.touche-couleurs(v.$touche-effacer-fond, v.$touche-effacer-texte)
+
+.touche--egal
+  font-size: v.$font-taille-egal
+  @include m.touche-couleurs(v.$touche-egal-fond, v.$touche-egal-texte)
+
+// Exposant projeté dans la touche (ex. x²)
+:host ::ng-deep sup
+  font-size: 11px

@@ -1,0 +1,7 @@
+<div class="ecran" role="status" aria-live="polite">
+  <div class="ecran__infos">
+    <span>{{ memoireActive() ? 'M' : '' }}</span>
+    <span class="ecran__operation">{{ operationEnCours() }}</span>
+  </div>
+  <output class="ecran__valeur" [class]="'ecran__valeur ecran__valeur--' + taille()">{{ valeur() }}</output>
+</div>
