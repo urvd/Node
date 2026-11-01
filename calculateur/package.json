@@ -10,6 +10,8 @@
     "build": "tsc -p tsconfig.build.json",
     "start": "node dist/App.js",
     "dev": "ts-node src/App.ts",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
     "test": "jest",
     "test:coverage": "jest --coverage",
     "test:mutation": "stryker run"
@@ -19,14 +21,21 @@
   },
   "license": "ISC",
   "devDependencies": {
+    "@eslint/js": "^9.39.5",
     "@stryker-mutator/core": "^10.1.1",
     "@stryker-mutator/jest-runner": "^10.1.1",
     "@stryker-mutator/typescript-checker": "^10.1.1",
     "@types/jest": "^30.0.0",
     "@types/node": "^26.6.5",
+    "eslint": "^9.39.5",
+    "globals": "^17.13.0",
     "jest": "^30.5.2",
     "ts-jest": "^29.4.15",
     "ts-node": "^10.9.2",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.72.1"
+  },
+  "overrides": {
+    "qs": "^6.17.0"
   }
 }
