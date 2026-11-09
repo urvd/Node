@@ -10,4 +10,5 @@ import { CalculatriceComponent } from './calculatrice/calculatrice.component';
 })
 export class AppComponent {
   title = 'calculatrice';
+  darkMode = true;
 }
