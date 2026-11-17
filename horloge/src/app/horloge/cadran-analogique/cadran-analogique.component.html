@@ -1,0 +1,19 @@
+<svg class="cadran" viewBox="0 0 300 300" aria-hidden="true">
+  <circle class="cadran__ombre" cx="150" cy="152" r="140" />
+  <circle class="cadran__fond" cx="150" cy="150" r="140" />
+  <circle class="cadran__minutes" cx="150" cy="150" r="128"
+    stroke-dasharray="1.5 11.904" stroke-dashoffset="0.75" transform="rotate(-90 150 150)" />
+  <circle class="cadran__heures" cx="150" cy="150" r="126"
+    stroke-dasharray="4 63.021" stroke-dashoffset="2" transform="rotate(-90 150 150)" />
+
+  @for (c of chiffres; track c.texte) {
+    <text [attr.x]="c.x" [attr.y]="c.y" class="cadran__chiffre"
+      [class.cadran__chiffre--majeur]="c.majeur">{{ c.texte }}</text>
+  }
+
+  <line class="aiguille aiguille--heures" x1="150" y1="166" x2="150" y2="86" [attr.transform]="rotationHeures()" />
+  <line class="aiguille aiguille--minutes" x1="150" y1="170" x2="150" y2="48" [attr.transform]="rotationMinutes()" />
+  <line class="aiguille aiguille--secondes" x1="150" y1="182" x2="150" y2="38" [attr.transform]="rotationSecondes()" />
+  <circle class="cadran__axe" cx="150" cy="150" r="9" />
+  <circle class="cadran__axe-centre" cx="150" cy="150" r="3" />
+</svg>

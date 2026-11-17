@@ -1,0 +1,13 @@
+<div class="grille">
+  @for (e of elements(); track e.valeur) {
+    <button
+      type="button"
+      class="choix"
+      [class]="'choix choix--' + variante()"
+      [class.choix--vue]="e.vue"
+      [class.choix--courant]="e.courant && !e.vue"
+      [attr.aria-pressed]="e.vue"
+      (click)="choix.emit(e.valeur)"
+    >{{ e.libelle }}</button>
+  }
+</div>

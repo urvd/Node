@@ -1,0 +1,15 @@
+<div class="interrupteur">
+  <button type="button" class="libelle" [class.libelle--actif]="!numerique()" (click)="choisir.emit(false)">ANALOGIQUE</button>
+  <button
+    type="button"
+    class="piste"
+    [class.piste--numerique]="numerique()"
+    role="switch"
+    [attr.aria-checked]="numerique()"
+    aria-label="Affichage numérique"
+    (click)="basculer.emit()"
+  >
+    <span class="piste__bouton"></span>
+  </button>
+  <button type="button" class="libelle" [class.libelle--actif]="numerique()" (click)="choisir.emit(true)">NUMÉRIQUE</button>
+</div>

@@ -1,0 +1,88 @@
+@use 'variables' as v
+@use 'mixins' as m
+
+:host
+  display: block
+  width: 100%
+  max-width: v.$horloge-largeur
+
+.horloge
+  width: 100%
+  max-width: v.$horloge-largeur
+  box-sizing: border-box
+  padding: v.$space-6
+  display: flex
+  flex-direction: column
+  gap: 20px
+  color: v.$ink
+
+.horloge__entete
+  display: flex
+  align-items: flex-end
+  justify-content: space-between
+  gap: v.$space-3
+
+.horloge__titre
+  margin: 0
+  font-size: v.$font-taille-titre
+  line-height: 0.95
+  font-weight: v.$font-poids-gras
+  letter-spacing: -0.01em
+
+.horloge__sous-titre
+  @include m.label
+  padding-bottom: v.$space-1
+
+.horloge__corps
+  display: flex
+  flex-direction: column
+  gap: v.$space-3
+  padding: v.$space-3
+  background: v.$board
+  border-radius: v.$radius-md
+
+.horloge__affichage
+  height: v.$zone-affichage-hauteur
+  background: v.$cell-empty
+  border-radius: v.$radius-md
+  display: flex
+  align-items: center
+  justify-content: center
+
+.horloge__infos
+  @include m.encart
+  padding: v.$space-2 v.$space-2 v.$space-2 v.$space-4
+  display: flex
+  justify-content: space-between
+  align-items: center
+  gap: v.$space-3
+
+.horloge__date
+  font-size: v.$font-taille-body
+  line-height: 1.3
+  font-weight: v.$font-poids-gras
+
+.horloge__fuseau
+  display: flex
+  align-items: center
+  gap: v.$space-1
+  min-width: 0
+
+.horloge__fuseau-libelle
+  @include m.label
+  white-space: nowrap
+
+.horloge__globe
+  width: v.$cible-tactile
+  height: v.$cible-tactile
+  flex-shrink: 0
+  border-radius: v.$radius-md
+  background: transparent
+  color: v.$ink
+  display: flex
+  align-items: center
+  justify-content: center
+  @include m.bouton
+
+.horloge__globe--actif
+  background: v.$fuseau-selectionne

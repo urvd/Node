@@ -1,0 +1,22 @@
+<div class="entetes" aria-hidden="true">
+  @for (j of joursSemaine; track j) {
+    <span>{{ j }}</span>
+  }
+</div>
+<div class="jours">
+  @for (c of cellules(); track c.cle) {
+    <button
+      type="button"
+      class="jour"
+      [class.jour--mois]="c.dansMois"
+      [class.jour--weekend]="c.dansMois && c.weekend"
+      [class.jour--aujourdhui]="c.aujourdhui"
+      [class.jour--selection]="c.selectionne"
+      [disabled]="c.horsPlage"
+      [attr.aria-label]="c.libelle"
+      [attr.aria-current]="c.aujourdhui ? 'date' : null"
+      [attr.aria-pressed]="c.selectionne"
+      (click)="choix.emit(c.date)"
+    >{{ c.date.d }}</button>
+  }
+</div>

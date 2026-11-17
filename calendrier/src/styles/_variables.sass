@@ -1,0 +1,75 @@
+// Variables du design « 2048 » appliqué au calendrier.
+// Les composants les importent avec `@use 'variables' as v`.
+
+// --- Surfaces
+$surface-page: #faf6ef
+$board: #c9b9a8
+$cell-empty: #ddd0c2
+
+// --- Texte
+$ink: #3b2f26
+$ink-muted: #5e544b
+$ink-light: #fffaf3
+
+// --- Action et état
+$action: #7a5f49
+$focus: #2f6fb5
+
+// --- Palette des tuiles
+$tile-2: #f3ebe1
+$tile-4: #efe0c6
+$tile-16: #f39462
+$tile-32: #d9583a
+$tile-64: #b8402a
+
+// --- Rôles
+$jour-fond: $tile-2
+$jour-weekend-fond: $tile-4
+$jour-aujourdhui-fond: $tile-32
+$jour-aujourdhui-texte: $ink-light
+$jour-selection-fond: $tile-16
+$jour-selection-contour: $tile-64
+$fleche-fond: $cell-empty
+$titre-fond: $tile-2
+$bouton-principal-fond: $action
+$bouton-principal-texte: $ink-light
+$opacite-desactive: 0.35
+
+// --- Typographie
+$font-famille: ui-rounded, "SF Pro Rounded", "Nunito", system-ui, sans-serif
+$font-poids-gras: 800
+$font-poids-label: 700
+$font-taille-titre: 44px
+$font-taille-navigation: 22px
+$font-taille-jour: 20px
+$font-taille-mois: 18px
+$font-taille-annee: 28px
+$font-taille-body: 15px
+$font-taille-label: 12px
+$interlettrage-label: 0.08em
+
+// --- Espacements
+$space-1: 4px
+$space-2: 8px
+$space-3: 12px
+$space-4: 16px
+$space-6: 24px
+$gouttiere-jours: 6px
+
+// --- Rayons
+$radius-md: 8px
+
+// --- Ombres
+$shadow-tile: 0 2px 0 rgba(59, 47, 38, 0.18)
+$shadow-ecran: inset 0 2px 0 rgba(59, 47, 38, 0.12)
+
+// --- Dimensions
+$calendrier-largeur: 460px
+$zone-grille-hauteur: 346px
+$navigation-hauteur: 52px
+$jour-hauteur: 48px
+$choix-hauteur: 80px
+$cible-tactile: 44px
+
+// --- Mouvement
+$transition-touche: 90ms ease

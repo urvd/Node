@@ -1,0 +1,8 @@
+<div class="selecteur" role="group" aria-label="Choisir un fuseau horaire">
+  @for (v of villes(); track v.ville) {
+    <button type="button" class="ville" [class.ville--active]="v.actif" [attr.aria-pressed]="v.actif" (click)="choix.emit(v.id)">
+      <span class="ville__nom">{{ v.ville }}</span>
+      <span class="ville__heure">{{ v.heure }}</span>
+    </button>
+  }
+</div>

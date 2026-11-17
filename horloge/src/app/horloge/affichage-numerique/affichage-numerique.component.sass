@@ -1,0 +1,56 @@
+@use 'variables' as v
+@use 'mixins' as m
+
+:host
+  display: block
+
+.numerique
+  display: flex
+  align-items: flex-start
+  gap: v.$space-2
+
+.numerique__colonne
+  display: flex
+  flex-direction: column
+  align-items: center
+  gap: v.$space-2
+
+.numerique__libelle
+  @include m.label
+
+.numerique__separateur
+  height: v.$tuile-hauteur
+  display: flex
+  align-items: center
+  font-family: v.$font-chiffres
+  font-size: v.$font-taille-separateur
+  font-weight: 700
+  color: v.$ink
+
+.numerique__separateur--attenue
+  opacity: 0.35
+
+.tuile
+  width: v.$tuile-largeur
+  height: v.$tuile-hauteur
+  border-radius: v.$radius-lg
+  display: flex
+  align-items: center
+  justify-content: center
+  font-family: v.$font-chiffres
+  font-size: v.$font-taille-tuile
+  line-height: 1
+  font-weight: 700
+  font-variant-numeric: lining-nums tabular-nums
+  color: v.$ink
+  box-shadow: v.$shadow-tile
+
+.tuile--heures
+  background: v.$tuile-heures
+
+.tuile--minutes
+  background: v.$tuile-minutes
+
+.tuile--secondes
+  background: v.$tuile-secondes
+  color: v.$ink-light

@@ -1,0 +1,41 @@
+<section class="calendrier" aria-label="Calendrier">
+  <header class="calendrier__entete">
+    <h1 class="calendrier__titre">Calendrier</h1>
+    <span class="calendrier__plage">{{ plage() }}</span>
+  </header>
+
+  <div class="calendrier__corps">
+    <app-navigation
+      [titre]="cal.titre()"
+      [titreAccessible]="cal.titreAccessible()"
+      [chevron]="cal.mode() !== 'annees'"
+      [precedentDesactive]="cal.precedentDesactive()"
+      [suivantDesactive]="cal.suivantDesactive()"
+      [libellePrecedent]="libellePrecedent()"
+      [libelleSuivant]="libelleSuivant()"
+      (precedent)="cal.precedent()"
+      (suivant)="cal.suivant()"
+      (titreClic)="cal.changerMode()"
+    />
+
+    <div class="calendrier__grille">
+      @switch (cal.mode()) {
+        @case ('jours') {
+          <app-grille-jours [cellules]="cal.cellules()" (choix)="cal.choisirJour($event)" />
+        }
+        @case ('mois') {
+          <app-grille-choix variante="mois" [elements]="cal.listeMois()" (choix)="cal.choisirMois($event)" />
+        }
+        @case ('annees') {
+          <app-grille-choix variante="annees" [elements]="cal.listeAnnees()" (choix)="cal.choisirAnnee($event)" />
+        }
+      }
+    </div>
+
+    <app-resume-selection
+      [date]="cal.selectionLongue()"
+      [infos]="cal.selectionInfos()"
+      (aujourdhui)="cal.allerAujourdhui()"
+    />
+  </div>
+</section>

@@ -1,0 +1,37 @@
+@use 'variables' as v
+
+// Libellé en capitales
+@mixin label
+  font-size: v.$font-taille-label
+  line-height: 1.2
+  font-weight: v.$font-poids-label
+  letter-spacing: v.$interlettrage-label
+  color: v.$ink-muted
+
+// Bouton du design : sans bordure, léger enfoncement au clic.
+// À inclure en dernier dans la règle (il apporte des règles imbriquées).
+@mixin bouton
+  border: 0
+  cursor: pointer
+  font-family: inherit
+  transition: transform v.$transition-touche, filter v.$transition-touche
+  &:hover:not(:disabled)
+    filter: brightness(1.04)
+  &:active:not(:disabled)
+    transform: scale(0.95)
+  &:disabled
+    cursor: default
+    opacity: v.$opacite-desactive
+  &:focus-visible
+    outline: 2px solid v.$focus
+    outline-offset: 2px
+  @media (prefers-reduced-motion: reduce)
+    transition: none
+    &:active:not(:disabled)
+      transform: none
+
+// Encart clair en creux
+@mixin encart
+  background: v.$tile-2
+  border-radius: v.$radius-md
+  box-shadow: v.$shadow-ecran

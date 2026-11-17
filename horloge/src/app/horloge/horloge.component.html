@@ -1,0 +1,50 @@
+<section class="horloge" aria-label="Horloge">
+  <header class="horloge__entete">
+    <h1 class="horloge__titre">Heure</h1>
+    <span class="horloge__sous-titre">HORLOGE</span>
+  </header>
+
+  <div class="horloge__corps">
+    <app-interrupteur
+      [numerique]="horloge.numerique()"
+      (basculer)="horloge.basculerAffichage()"
+      (choisir)="horloge.afficher($event)"
+    />
+
+    <div class="horloge__affichage" role="timer" [attr.aria-label]="heureAccessible()">
+      @if (horloge.selecteurOuvert()) {
+        <app-selecteur-fuseau
+          [maintenant]="horloge.maintenant()"
+          [fuseauActif]="horloge.fuseau()"
+          (choix)="horloge.choisirFuseau($event)"
+        />
+      } @else if (horloge.numerique()) {
+        <app-affichage-numerique [heure]="horloge.heure()" />
+      } @else {
+        <app-cadran-analogique [heure]="horloge.heure()" />
+      }
+    </div>
+
+    <div class="horloge__infos">
+      <span class="horloge__date">{{ horloge.dateLongue() }}</span>
+      <div class="horloge__fuseau">
+        <span class="horloge__fuseau-libelle">{{ horloge.libelleFuseau() }}</span>
+        <button
+          type="button"
+          class="horloge__globe"
+          [class.horloge__globe--actif]="horloge.selecteurOuvert()"
+          aria-label="Changer de fuseau horaire"
+          [attr.aria-expanded]="horloge.selecteurOuvert()"
+          (click)="horloge.basculerSelecteur()"
+        >
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="9" />
+            <path d="M3 12h18" />
+            <path d="M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

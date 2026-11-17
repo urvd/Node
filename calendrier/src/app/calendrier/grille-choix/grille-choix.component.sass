@@ -1,0 +1,36 @@
+@use 'variables' as v
+@use 'mixins' as m
+
+:host
+  display: block
+
+.grille
+  display: grid
+  grid-template-columns: repeat(3, minmax(0, 1fr))
+  grid-auto-rows: v.$choix-hauteur
+  gap: v.$space-2
+
+.choix
+  height: v.$choix-hauteur
+  border-radius: v.$radius-md
+  background: v.$jour-fond
+  color: v.$ink
+  font-weight: v.$font-poids-gras
+  box-shadow: v.$shadow-tile
+  @include m.bouton
+
+.choix--mois
+  font-size: v.$font-taille-mois
+
+.choix--annees
+  font-size: v.$font-taille-annee
+  font-variant-numeric: tabular-nums
+
+// Le mois ou l'année actuellement affiché
+.choix--vue
+  background: v.$jour-selection-fond
+
+// Le mois ou l'année d'aujourd'hui
+.choix--courant
+  background: v.$jour-aujourdhui-fond
+  color: v.$jour-aujourdhui-texte

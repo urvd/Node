@@ -1,0 +1,60 @@
+@use 'variables' as v
+
+:host
+  display: block
+  width: v.$cadran-taille
+  height: v.$cadran-taille
+
+.cadran
+  width: 100%
+  height: 100%
+
+.cadran__ombre
+  fill: rgba(59, 47, 38, 0.18)
+
+.cadran__fond
+  fill: v.$cadran-fond
+
+.cadran__minutes
+  fill: none
+  stroke: v.$cadran-graduation
+  stroke-width: 8
+
+.cadran__heures
+  fill: none
+  stroke: v.$ink
+  stroke-width: 12
+
+.cadran__chiffre
+  text-anchor: middle
+  dominant-baseline: central
+  font-family: v.$font-chiffres
+  font-size: 18px
+  font-weight: 500
+  fill: v.$ink-muted
+
+.cadran__chiffre--majeur
+  font-size: 30px
+  font-weight: 700
+  fill: v.$ink
+
+.aiguille
+  stroke-linecap: round
+
+.aiguille--heures
+  stroke: v.$aiguille-heures
+  stroke-width: 10
+
+.aiguille--minutes
+  stroke: v.$aiguille-minutes
+  stroke-width: 7
+
+.aiguille--secondes
+  stroke: v.$aiguille-secondes
+  stroke-width: 3
+
+.cadran__axe
+  fill: v.$aiguille-secondes
+
+.cadran__axe-centre
+  fill: v.$ink-light

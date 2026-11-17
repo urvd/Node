@@ -1,0 +1,45 @@
+@use 'variables' as v
+@use 'mixins' as m
+
+:host
+  display: block
+  width: 100%
+  height: 100%
+
+.selecteur
+  height: 100%
+  box-sizing: border-box
+  padding: v.$space-3
+  display: grid
+  grid-template-columns: repeat(2, minmax(0, 1fr))
+  grid-auto-rows: 46px
+  gap: 6px
+
+.ville
+  height: 46px
+  padding: 0 v.$space-3
+  border-radius: v.$radius-md
+  background: v.$tile-2
+  color: v.$ink
+  display: flex
+  align-items: center
+  justify-content: space-between
+  gap: v.$space-2
+  box-shadow: v.$shadow-tile
+  @include m.bouton
+
+.ville--active
+  background: v.$fuseau-selectionne
+
+.ville__nom
+  font-size: v.$font-taille-body
+  font-weight: v.$font-poids-gras
+  white-space: nowrap
+  overflow: hidden
+  text-overflow: ellipsis
+
+.ville__heure
+  font-family: v.$font-chiffres
+  font-size: v.$font-taille-body
+  font-weight: 700
+  font-variant-numeric: lining-nums tabular-nums

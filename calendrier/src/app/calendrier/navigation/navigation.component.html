@@ -1,0 +1,19 @@
+<div class="navigation">
+  <button type="button" class="fleche" [disabled]="precedentDesactive()" [attr.aria-label]="libellePrecedent()" (click)="precedent.emit()">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7" /></svg>
+  </button>
+
+  <button type="button" class="titre" [attr.aria-label]="titreAccessible()" (click)="titreClic.emit()">
+    <span>{{ titre() }}</span>
+    @if (chevron()) {
+      <svg class="titre__chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg>
+    }
+  </button>
+
+  <button type="button" class="fleche" [disabled]="suivantDesactive()" [attr.aria-label]="libelleSuivant()" (click)="suivant.emit()">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7" /></svg>
+  </button>
+</div>

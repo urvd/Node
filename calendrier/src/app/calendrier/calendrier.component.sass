@@ -1,0 +1,46 @@
+@use 'variables' as v
+@use 'mixins' as m
+
+:host
+  display: block
+  width: 100%
+  max-width: v.$calendrier-largeur
+
+.calendrier
+  width: 100%
+  max-width: v.$calendrier-largeur
+  box-sizing: border-box
+  padding: v.$space-6
+  display: flex
+  flex-direction: column
+  gap: 20px
+  color: v.$ink
+
+.calendrier__entete
+  display: flex
+  align-items: flex-end
+  justify-content: space-between
+  gap: v.$space-3
+
+.calendrier__titre
+  margin: 0
+  font-size: v.$font-taille-titre
+  line-height: 0.95
+  font-weight: v.$font-poids-gras
+  letter-spacing: -0.01em
+
+.calendrier__plage
+  @include m.label
+  padding-bottom: v.$space-1
+  white-space: nowrap
+
+.calendrier__corps
+  display: flex
+  flex-direction: column
+  gap: v.$space-3
+  padding: v.$space-3
+  background: v.$board
+  border-radius: v.$radius-md
+
+.calendrier__grille
+  min-height: v.$zone-grille-hauteur

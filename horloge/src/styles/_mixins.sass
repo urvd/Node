@@ -1,0 +1,33 @@
+@use 'variables' as v
+
+// Libellé en capitales
+@mixin label
+  font-size: v.$font-taille-label
+  line-height: 1.2
+  font-weight: v.$font-poids-label
+  letter-spacing: v.$interlettrage-label
+  color: v.$ink-muted
+
+// Bouton du design : sans bordure, léger enfoncement au clic
+@mixin bouton
+  border: 0
+  cursor: pointer
+  font-family: inherit
+  transition: transform v.$transition-touche, filter v.$transition-touche
+  &:hover
+    filter: brightness(1.04)
+  &:active
+    transform: scale(0.95)
+  &:focus-visible
+    outline: 2px solid v.$focus
+    outline-offset: 2px
+  @media (prefers-reduced-motion: reduce)
+    transition: none
+    &:active
+      transform: none
+
+// Encart clair en creux (écran, barre d'information)
+@mixin encart
+  background: v.$ecran-fond
+  border-radius: v.$radius-md
+  box-shadow: v.$shadow-ecran

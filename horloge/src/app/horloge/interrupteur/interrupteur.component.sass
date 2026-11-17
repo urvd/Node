@@ -1,0 +1,53 @@
+@use 'variables' as v
+@use 'mixins' as m
+
+:host
+  display: block
+
+.interrupteur
+  display: flex
+  align-items: center
+  justify-content: center
+  gap: v.$space-2
+  height: v.$cible-tactile
+
+.libelle
+  height: v.$cible-tactile
+  padding: 0 v.$space-3
+  border-radius: v.$radius-md
+  background: transparent
+  color: v.$ink-muted
+  font-size: v.$font-taille-label
+  font-weight: v.$font-poids-gras
+  letter-spacing: v.$interlettrage-label
+  @include m.bouton
+
+.libelle--actif
+  color: v.$ink
+
+.piste
+  width: 56px
+  height: 32px
+  padding: 3px
+  border-radius: v.$radius-pill
+  background: v.$interrupteur-analogique
+  display: flex
+  align-items: center
+  box-shadow: inset 0 2px 0 rgba(59, 47, 38, 0.18)
+  @include m.bouton
+
+.piste--numerique
+  background: v.$interrupteur-numerique
+  .piste__bouton
+    transform: translateX(24px)
+
+.piste__bouton
+  display: block
+  width: 26px
+  height: 26px
+  border-radius: v.$radius-pill
+  background: v.$ink-light
+  box-shadow: 0 2px 0 rgba(59, 47, 38, 0.25)
+  transition: transform v.$transition-interrupteur
+  @media (prefers-reduced-motion: reduce)
+    transition: none

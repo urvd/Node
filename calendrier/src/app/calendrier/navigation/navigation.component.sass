@@ -1,0 +1,39 @@
+@use 'variables' as v
+@use 'mixins' as m
+
+:host
+  display: block
+
+.navigation
+  display: flex
+  gap: v.$space-2
+  height: v.$navigation-hauteur
+
+.fleche
+  width: v.$navigation-hauteur
+  height: v.$navigation-hauteur
+  border-radius: v.$radius-md
+  background: v.$fleche-fond
+  color: v.$ink
+  display: flex
+  align-items: center
+  justify-content: center
+  @include m.bouton
+
+.titre
+  flex: 1
+  height: v.$navigation-hauteur
+  border-radius: v.$radius-md
+  background: v.$titre-fond
+  color: v.$ink
+  font-size: v.$font-taille-navigation
+  font-weight: v.$font-poids-gras
+  box-shadow: v.$shadow-tile
+  display: flex
+  align-items: center
+  justify-content: center
+  gap: v.$space-2
+  @include m.bouton
+
+.titre__chevron
+  color: v.$ink-muted

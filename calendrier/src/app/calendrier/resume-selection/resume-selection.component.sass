@@ -1,0 +1,39 @@
+@use 'variables' as v
+@use 'mixins' as m
+
+:host
+  display: block
+
+.resume
+  @include m.encart
+  padding: v.$space-3 v.$space-3 v.$space-3 v.$space-4
+  display: flex
+  justify-content: space-between
+  align-items: center
+  gap: v.$space-3
+
+.resume__textes
+  display: flex
+  flex-direction: column
+  gap: v.$space-1
+  min-width: 0
+
+.resume__date
+  font-size: v.$font-taille-body
+  line-height: 1.3
+  font-weight: v.$font-poids-gras
+
+.resume__infos
+  @include m.label
+
+.resume__bouton
+  height: v.$cible-tactile
+  padding: 0 v.$space-4
+  border-radius: v.$radius-md
+  background: v.$bouton-principal-fond
+  color: v.$bouton-principal-texte
+  font-size: v.$font-taille-body
+  font-weight: v.$font-poids-gras
+  white-space: nowrap
+  box-shadow: v.$shadow-tile
+  @include m.bouton

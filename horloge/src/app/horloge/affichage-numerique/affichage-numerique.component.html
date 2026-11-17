@@ -1,0 +1,11 @@
+<div class="numerique">
+  @for (t of tuiles(); track t.variante; let dernier = $last) {
+    <div class="numerique__colonne">
+      <div class="tuile" [class]="'tuile tuile--' + t.variante">{{ t.valeur }}</div>
+      <span class="numerique__libelle">{{ t.libelle }}</span>
+    </div>
+    @if (!dernier) {
+      <span class="numerique__separateur" [class.numerique__separateur--attenue]="separateurAttenue()" aria-hidden="true">:</span>
+    }
+  }
+</div>

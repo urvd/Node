@@ -1,0 +1,58 @@
+@use 'variables' as v
+@use 'mixins' as m
+
+:host
+  display: flex
+  flex-direction: column
+  gap: v.$space-2
+
+.entetes
+  display: grid
+  grid-template-columns: repeat(7, minmax(0, 1fr))
+  gap: v.$gouttiere-jours
+  height: 20px
+  font-size: v.$font-taille-label
+  line-height: 20px
+  font-weight: v.$font-poids-gras
+  letter-spacing: v.$interlettrage-label
+  text-align: center
+  color: v.$ink
+
+.jours
+  display: grid
+  grid-template-columns: repeat(7, minmax(0, 1fr))
+  grid-auto-rows: v.$jour-hauteur
+  gap: v.$gouttiere-jours
+
+// Par défaut : jour d'un autre mois, sans fond
+.jour
+  height: v.$jour-hauteur
+  border-radius: v.$radius-md
+  background: transparent
+  color: v.$ink-muted
+  font-size: v.$font-taille-jour
+  font-weight: v.$font-poids-gras
+  font-variant-numeric: tabular-nums
+  @include m.bouton
+
+.jour--mois
+  background: v.$jour-fond
+  color: v.$ink
+  box-shadow: v.$shadow-tile
+
+.jour--weekend
+  background: v.$jour-weekend-fond
+
+.jour--aujourdhui
+  background: v.$jour-aujourdhui-fond
+  color: v.$jour-aujourdhui-texte
+  box-shadow: v.$shadow-tile
+
+.jour--selection
+  background: v.$jour-selection-fond
+  color: v.$ink
+  box-shadow: v.$shadow-tile
+
+// Le jour choisi est aussi aujourd'hui : un anneau brique le rappelle
+.jour--selection.jour--aujourdhui
+  box-shadow: inset 0 0 0 3px v.$jour-selection-contour, v.$shadow-tile
